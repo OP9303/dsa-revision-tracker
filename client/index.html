@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DSA Revision Tracker</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              // Using colors from your Login/Signup pages
+              primary: '#137fec', // Blue from login
+              'background-light': '#f6f7f8',
+              'background-dark': '#101922', // Darkest background
+              'content-dark': '#1c2127', // Lighter dark for cards/inputs
+              'border-dark': '#3b4754',
+              // Using colors from your Dashboard page
+              'tokyo-bg': '#1A1B26',
+              'tokyo-bg-light': '#24283B',
+              'tokyo-text': '#C0CAF5',
+              'tokyo-text-dark': '#565F89',
+              'tokyo-cyan': '#79E6F3',
+              'tokyo-green': '#9ECE6A',
+              'tokyo-orange': '#FF9E64',
+              'tokyo-red': '#F7768E',
+            },
+            fontFamily: {
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      /* Custom scrollbar to match new UI */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #24283B;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #565F89;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #79E6F3;
+      }
+      /* Accordion styles from dashboard */
+      details > summary { list-style: none; }
+      details > summary::-webkit-details-marker { display: none; }
+      details > summary .icon-open { display: block; }
+      details > summary .icon-close { display: none; }
+      details[open] > summary .icon-open { display: none; }
+      details[open] > summary .icon-close { display: block; }
+    </style>
+  </head>
+  <body class="font-display">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
