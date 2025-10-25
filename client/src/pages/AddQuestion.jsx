@@ -18,8 +18,8 @@ export default function AddQuestion() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // URL Parser Effect
-    if (url.includes('leetcode.com/problems/')) {
+    // URL Parser Effect - only auto-fill if title is empty
+    if (url.includes('leetcode.com/problems/') && !formData.title) {
       try {
         const slug = url.split('/problems/')[1].split('/')[0];
         const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
