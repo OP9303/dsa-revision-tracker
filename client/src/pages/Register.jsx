@@ -98,7 +98,7 @@ export default function Register() {
                   required
                   type="password"
                   value={password}
-                  onChange={(e) => setPassword(e.g.target.value)}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
             </div>
