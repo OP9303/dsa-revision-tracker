@@ -15,18 +15,20 @@ export default function AddQuestion() {
     notes: '',
   });
   const [error, setError] = useState(null);
+  const [hasAutoFilled, setHasAutoFilled] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // URL Parser Effect - only auto-fill if title is empty
-    if (url.includes('leetcode.com/problems/') && !formData.title) {
+    // URL Parser Effect - only auto-fill once when URL is pasted
+    if (url.includes('leetcode.com/problems/') && !hasAutoFilled) {
       try {
         const slug = url.split('/problems/')[1].split('/')[0];
         const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-        setFormData(prev => ({ ...prev, title, platform: 'LeetCode', url })); // Include URL here
+        setFormData(prev => ({ ...prev, title, platform: 'LeetCode', url }));
+        setHasAutoFilled(true);
       } catch (err) { console.warn('Could not parse URL', err); }
     }
-  }, [url]);
+  }, [url, hasAutoFilled]);
 
   // Simplified handleChange
   const handleChange = (e) => {
