@@ -18,7 +18,7 @@ connectDB(process.env.MONGO_URI);
 
 const allowedOrigins = [
     'http://localhost:5173', // Your local dev frontend
-    'https://dsa-tracker-client.onrender.com' // <-- Your DEPLOYED frontend URL
+    'https://dsa-revision-client.onrender.com' // Your DEPLOYED frontend URL
 ];
 
 const corsOptions = {
@@ -33,6 +33,8 @@ const corsOptions = {
   },
   optionsSuccessStatus: 200 // Some legacy browsers choke on 204
 };
+
+app.use(cors(corsOptions));
 
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/questions', require('./routes/questions'));
